@@ -1,25 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EditToolComponent } from './edit-tool.component';
+import { EditCitaComponent } from './edit-cita.component';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ToolService } from '../tool.service';
+import { CitaService } from '../cita.service';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 
 describe('EditToolComponent', () => {
-  let component: EditToolComponent;
-  let fixture: ComponentFixture<EditToolComponent>;
+  let component: EditCitaComponent;
+  let fixture: ComponentFixture<EditCitaComponent>;
   let formBuilder: FormBuilder;
   let router: Router;
-  let toolService: ToolService;
+  let toolService: CitaService;
   let cookieService: jasmine.SpyObj<CookieService>;
 
   beforeEach(async () => {
     const cookieServiceSpy = jasmine.createSpyObj('CookieService', ['get']);
 
     await TestBed.configureTestingModule({
-      declarations: [EditToolComponent],
+      declarations: [EditCitaComponent],
       imports: [HttpClientModule, ReactiveFormsModule],
       providers: [
         FormBuilder,
@@ -30,12 +30,12 @@ describe('EditToolComponent', () => {
 
     formBuilder = TestBed.inject(FormBuilder);
     router = TestBed.inject(Router);
-    toolService = TestBed.inject(ToolService);
+    toolService = TestBed.inject(CitaService);
     cookieService = TestBed.inject(CookieService) as jasmine.SpyObj<CookieService>;
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditToolComponent);
+    fixture = TestBed.createComponent(EditCitaComponent);
     component = fixture.componentInstance;
 
     component.tool = {

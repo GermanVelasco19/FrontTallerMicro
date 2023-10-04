@@ -1,51 +1,51 @@
 import { Component } from '@angular/core';
-import { ToolService, Tool } from '../tool.service';
+import { CitaService, Cita } from '../cita.service';
 import {CookieService} from "ngx-cookie-service";
 import {Router} from "@angular/router";
 
 @Component({
   selector: 'tool-control',
-  templateUrl: './tool-control.component.html',
-  styleUrls: ['./tool-control.component.css']
+  templateUrl: './cita-control.component.html',
+  styleUrls: ['./cita-control.component.css']
 })
 /**
  * @description Componente encargado de mostrar las opciones de manejo de herramientas de acuerdo a las cargadas en la base de datos
  * @class Tool-controlComponent
  * @constructor
- * @param {ToolService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio toolsWeb
+ * @param {CitaService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio toolsWeb
  */
-export class ToolControlComponent {
-  constructor(private toolservice: ToolService,private cookies:CookieService,private router:Router) {}
+export class CitaControlComponent {
+  constructor(private citaservice: CitaService, private cookies:CookieService, private router:Router) {}
   /**
    * lista de tools a mostrar en la pagina
-   * @type {Tool[]}
+   * @type {Cita[]}
    */
-  tool: Tool[] = [];
+  citas: Cita[] = [];
   /**
 
    Inicializa el componente obteniendo la lista de tools
    utilizando el método getTools() y suscribiéndose al resultado para actualizar la variable "tool"
-   cuando la lista cambie. También se suscribe al observable "tools$" del servicio ToolService
+   cuando la lista cambie. También se suscribe al observable "tools$" del servicio CitaService
    para actualizar la variable "tool" cuando la lista de usuarios cambie en el servicio.
    @returns void
    */
    ngOnInit(): void {
 
-    this.toolservice.getTools().subscribe(
-      (data: Tool[]) => {
-        this.tool = data;
+    this.citaservice.getAll().subscribe(
+      (data: Cita[]) => {
+        this.citas = data;
       }
     )
 
-    this.toolservice.tools$.subscribe(
-      (data: Tool[]) => {
-        this.tool = data;
+    this.citaservice.citas$.subscribe(
+      (data: Cita[]) => {
+        this.citas = data;
       }
     );
   }
 
-  borrar(id: number): void {
-    this.toolservice.deleteTool(id).subscribe(() => {
+  borrar(id: number | null | undefined): void {
+    this.citaservice.deleteCita(id).subscribe(() => {
       location.reload();
     });
   }
@@ -53,5 +53,8 @@ export class ToolControlComponent {
   editar(name:string):void{
      this.cookies.set('name',name);
      this.router.navigate(['/editT'])
+  }
+  nuevo():void{
+     this.router.navigate(['/regCita'])
   }
 }

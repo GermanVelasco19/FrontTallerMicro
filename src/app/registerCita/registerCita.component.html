@@ -4,53 +4,60 @@
 </div>
 <div id="form_reg">
     <form id="formulario-reg" [formGroup]="RegForm" (ngSubmit)="onsubmit()">
-                <label for="inputTextR" >Usuario</label>
+                <label for="inputTextCi" >Id cita</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputTextCi"
+                  placeholder="id_cita"
+                  required="required"
+                  formControlName="id_cita"
+                />
+                <label for="inputTextR" >Nombre</label>
                 <input
                     type="text"
                     class="form-control"
                     id="inputTextR"
-                    placeholder="Nombre de usuario"
+                    placeholder="Nombre"
                     required="required"
-                    formControlName="username"
+                    formControlName="nombre"
                 />
-                <label for="inputPassword" >Contraseña</label>
+                <label for="inputPassword" >Apellido</label>
                 <input
-                    type="password"
+                    type="text"
                     class="form-control"
                     id="inputPassword"
-                    placeholder="Contraseña"
+                    placeholder="Apellido"
                     required="required"
-                    formControlName="password"
+                    formControlName="last_name"
                 />
-                <label for="inputTextRP" >Nombre</label>
+                <label for="inputTextRP" >Cedula</label>
                 <input
                     type="text"
                     class="form-control"
                     id="inputTextRP"
-                    placeholder="Nombre"
+                    placeholder="Cedula"
                     required="required"
-                    formControlName="name"
+                    formControlName="cedula"
                 />
                 <div>
-                <label for="inputTextA" >Apellido</label>
+                <label for="inputTextA" >Fecha</label>
                 <input
                     type="text"
                     class="form-control"
                     id="inputTextA"
-                    placeholder="Apellido"
+                    placeholder="Fecha"
                     required="required"
-                    formControlName="lastname"
+                    formControlName="fecha"
                 />
-                  <label for="inputTextB" >Fecha</label>
+                  <label for="inputTextB" >Proposito</label>
                 <input
                     type="text"
                     id="inputTextB"
                     class="form-control"
-                    placeholder="Fecha hora"
-                    value="2002-07-22"
-                    min="1950-01-01 00" max="2023-12-31 17"
+                    placeholder="Proposito"
                     required="required"
-                    formControlName="date"
+                    formControlName="proposito"
                 />
                   <button type="submit" >Registrar</button>
         </div>

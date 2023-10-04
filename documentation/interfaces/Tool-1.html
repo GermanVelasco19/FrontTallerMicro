@@ -84,25 +84,25 @@
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                        <a href="#description" 
+                                        <a href="#description"
 >
                                             description
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#img" 
+                                        <a href="#img"
 >
                                             img
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#name" 
+                                        <a href="#name"
 >
                                             name
                                         </a>
                                 </li>
                                 <li>
-                                        <a href="#price" 
+                                        <a href="#price"
 >
                                             price
                                         </a>
@@ -256,7 +256,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
-import { ToolService } from &#x27;../tool.service&#x27;;
+import { CitaService } from &#x27;../tool.service&#x27;;
 
 // Interface que define las propiedades de una herramienta
 interface Tool {
@@ -276,11 +276,11 @@ interface Tool {
  * @description Componente encargado de mostrar el menu con todas las herramientas
  * @class MainMenuComponent
  * @constructor
- * @param {ToolService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio ToolsWeb y ToolsSearch
+ * @param {CitaService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio ToolsWeb y ToolsSearch
  */
 export class MainMenuComponent {
 
-  constructor(private toolservice: ToolService) {}
+  constructor(private toolservice: CitaService) {}
 
   /**
    * lista de herramientas a mostrar en la pagina principal
@@ -290,9 +290,9 @@ export class MainMenuComponent {
 
   /**
 
-   Inicializa el componente obteniendo la lista de herramientas del servicio ToolService
+   Inicializa el componente obteniendo la lista de herramientas del servicio CitaService
    utilizando el método getTools() y suscribiéndose al resultado para actualizar la variable &quot;tools&quot;
-   cuando la lista cambie. También se suscribe al observable &quot;tools$&quot; del servicio ToolService
+   cuando la lista cambie. También se suscribe al observable &quot;tools$&quot; del servicio CitaService
    para actualizar la variable &quot;tools&quot; cuando la lista de herramientas cambie en el servicio.
    @returns void
    */

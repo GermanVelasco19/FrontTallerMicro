@@ -2,19 +2,16 @@
 <div class="container my-5">
     <div class="row">
       <div class="card-deck">
-        <div class="card-item" *ngFor="let tool of tools">
+        <div class="card-item" *ngFor="let cita of citas">
           <div class="card-header">
-            <h5 class="card-title">{{tool.name}}</h5>
+            <h5 class="card-title">{{cita.id_cita}}.{{cita.nombre}} {{cita.last_name}}</h5>
           </div>
           <div class="card-body">
-            <div class="image_container" >
-                <img id="tool-image" [src]=tool.img alt={{tool.name}}>
-            </div>
             <div id="texto">
-              <p class="card-text description" id="tool-description">{{tool.description}}</p>
-              <p class="card-text price" id="tool-price">{{tool.price|currency}}</p>
+              <p class="card-text fecha" id="cita-date">Fecha: {{cita.fecha}}</p>
+              <p class="card-text cedula" id="cita-cedula">Cedula: {{cita.cedula}}</p>
+              <p class="card-text proposito" id="cita-proposito">Proposito de la cita: {{cita.proposito}}</p>
             </div>
-            <a href="#" class="btn btn-primary">Ampliar información</a>
           </div>
         </div>
       </div>

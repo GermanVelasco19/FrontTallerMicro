@@ -6,7 +6,6 @@ import { CookieService } from "ngx-cookie-service";
 interface User {
   user_id : number;
   name_user: string;
-  city_id : number;
   last_name_user: string;
   username: string;
   password: string;
@@ -42,22 +41,22 @@ export class UserService {
    getUsers(): Observable<User[]> {
      const token=this.cookies.get('token')
      const headers =new HttpHeaders().set('Authorization',token);
-    return this.http.get<User[]>("http://localhost:8083/get_users",{headers});
+    return this.http.get<User[]>("http://localhost:8087/get_users",{headers});
   }
   /**
    @description Método encargado de eliminar usuarios con el ID especificado
    @method deleteUser
    */
    deleteUser(identifier: number): Observable<any> {
-    const url = `http://localhost:8083/deleteUser/${identifier}`;
+    const url = `http://localhost:8087/deleteUser/${identifier}`;
     const token=this.cookies.get('token')
     const headers =new HttpHeaders().set('Authorization',token);
     return this.http.delete(url,{headers});
   }
 
-  updateUser(id: number, u: { password: string; name_user: string; user_id: number; last_name_user: string; username: string; birthdate_user: string; city_id: number }): Observable<any> {
+  updateUser(id: number, u: { password: string; name_user: string; user_id: number; last_name_user: string; username: string; birthdate_user: string }): Observable<any> {
 
-    const url = `http://localhost:8083/updateUser/${id}`;
+    const url = `http://localhost:8087/updateUser/${id}`;
     const token = this.cookies.get('token');
     const headers = new HttpHeaders().set('Authorization', token);
 

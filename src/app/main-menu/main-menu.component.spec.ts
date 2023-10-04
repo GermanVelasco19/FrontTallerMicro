@@ -4,25 +4,25 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NavmenuComponent } from '../navmenu/navmenu.component';
 import { PaginationButtonsComponent } from '../pagination-buttons/pagination-buttons.component';
-import { ToolService } from '../tool.service';
+import { CitaService } from '../cita.service';
 import { HttpClientModule } from '@angular/common/http';
 import { of } from 'rxjs';
 
 describe('MainMenuComponent', () => {
   let component: MainMenuComponent;
   let fixture: ComponentFixture<MainMenuComponent>;
-  let toolService: ToolService;
+  let toolService: CitaService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [MainMenuComponent,NavmenuComponent, PaginationButtonsComponent],
       imports: [HttpClientModule,FormsModule],
-      providers: [ToolService]
+      providers: [CitaService]
     }).compileComponents();
 
     fixture = TestBed.createComponent(MainMenuComponent);
     component = fixture.componentInstance;
-    toolService = TestBed.inject(ToolService);
+    toolService = TestBed.inject(CitaService);
   });
 
   it('should create', () => {
@@ -56,5 +56,5 @@ describe('MainMenuComponent', () => {
       expect(component.tools).toEqual(mockTools);
     });
   }));
-  
+
 });

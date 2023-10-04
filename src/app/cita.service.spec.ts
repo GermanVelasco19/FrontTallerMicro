@@ -1,17 +1,17 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { ToolService, Tool } from './tool.service';
+import { CitaService, Tool } from './cita.service';
 
 describe('ToolService', () => {
-  let service: ToolService;
+  let service: CitaService;
   let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ToolService]
+      providers: [CitaService]
     });
-    service = TestBed.inject(ToolService);
+    service = TestBed.inject(CitaService);
     httpMock = TestBed.inject(HttpTestingController);
   });
 

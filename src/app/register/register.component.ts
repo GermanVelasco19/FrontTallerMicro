@@ -47,7 +47,8 @@ export class RegisterComponent {
     password: '',
     name: '',
     lastname: '',
-    birthdate: ''
+    date: '',
+    cedula:0
   });
 
   authenticated = 0;
@@ -61,20 +62,16 @@ export class RegisterComponent {
     let passParam: string;
     let nameParam: string;
     let lastnameParam: string;
-    let birthdateParam: string;
-    let cityParam = {
-      city_id: 1,
-      name: 'cali'
-    };
+    let dateParam: string;
 
     userParam= ''+ this.RegForm.value.username;
     passParam=''+this.RegForm.value.password;
     nameParam=''+this.RegForm.value.name;
     lastnameParam=''+this.RegForm.value.lastname;
-    birthdateParam=''+this.RegForm.value.birthdate;
+    dateParam=''+this.RegForm.value.date;
 
     // Envía una solicitud de inicio de sesión al servidor
-    this.registerService.NewUser(nameParam,cityParam,lastnameParam,userParam,passParam,"",birthdateParam).subscribe(
+    this.registerService.NewUser(nameParam,lastnameParam,userParam,passParam,"",dateParam).subscribe(
       (data) :void => {
         if (data==true){
 

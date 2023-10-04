@@ -35,22 +35,22 @@ describe('UserService', () => {
       {
         user_id: 1,
         name_user: 'John',
-        city_id: 1,
         last_name_user: 'Doe',
         username: 'johndoe',
         password: 'password',
         token: 'token',
-        birthdate_user: '2000-01-01'
+        date: '2000-01-01',
+        cedula:0
       },
       {
         user_id: 2,
         name_user: 'Jane',
-        city_id: 2,
         last_name_user: 'Doe',
         username: 'janedoe',
         password: 'password',
         token: 'token',
-        birthdate_user: '2000-01-02'
+        date: '2000-01-02',
+        cedula:0
       }
     ];
 

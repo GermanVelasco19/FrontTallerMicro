@@ -10,10 +10,11 @@ import { PaginationButtonsComponent } from './pagination-buttons/pagination-butt
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersControlComponent } from './users-control/users-control.component';
-import { ToolControlComponent } from './tool-control/tool-control.component';
+import { CitaControlComponent } from './cita-control/cita-control.component';
 import { RegisterComponent } from './register/register.component';
-import { EditToolComponent } from './edit-tool/edit-tool.component';
+import { EditCitaComponent } from './edit-cita/edit-cita.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import {RegisterCitaComponent} from "./registerCita/registerCita.component";
 
 
 @NgModule({
@@ -24,10 +25,11 @@ import { EditUserComponent } from './edit-user/edit-user.component';
     MainMenuComponent,
     PaginationButtonsComponent,
     UsersControlComponent,
-    ToolControlComponent,
+    CitaControlComponent,
     RegisterComponent,
-    EditToolComponent,
-    EditUserComponent
+    EditCitaComponent,
+    EditUserComponent,
+    RegisterCitaComponent
   ],
     imports: [
         BrowserModule,

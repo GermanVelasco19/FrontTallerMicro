@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { ToolService } from '../tool.service';
+import { CitaService } from '../cita.service';
 
 // Interface que define las propiedades de una herramienta
-interface Tool {
-  name: string;
-  img: string;
-  description: string;
-  price: any;
-  id: number;
+interface Cita {
+  id_cita: number|null|undefined;
+  nombre: string;
+  last_name: string;
+  fecha: string;
+  proposito: string;
+  cedula: number;
 }
 
 @Component({
@@ -20,39 +21,39 @@ interface Tool {
  * @description Componente encargado de mostrar el menu con todas las herramientas
  * @class MainMenuComponent
  * @constructor
- * @param {ToolService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio ToolsWeb y ToolsSearch
+ * @param {CitaService} toolservice -servicio de angular para realizar peticiones HTTP al microServicio ToolsWeb y ToolsSearch
  */
 export class MainMenuComponent {
 
-  constructor(private toolservice: ToolService) {}
+  constructor(private citaservice: CitaService) {}
 
   /**
    * lista de herramientas a mostrar en la pagina principal
-   * @type {Tool[]}
+   * @type {Cita[]}
    */
-  tools: Tool[] = [];
+  citas: Cita[] = [];
 
   /**
 
-   Inicializa el componente obteniendo la lista de herramientas del servicio ToolService
+   Inicializa el componente obteniendo la lista de herramientas del servicio CitaService
    utilizando el método getTools() y suscribiéndose al resultado para actualizar la variable "tools"
-   cuando la lista cambie. También se suscribe al observable "tools$" del servicio ToolService
+   cuando la lista cambie. También se suscribe al observable "tools$" del servicio CitaService
    para actualizar la variable "tools" cuando la lista de herramientas cambie en el servicio.
    @returns void
    */
   ngOnInit(): void {
 
-    this.toolservice.getTools().subscribe(
-      (data: Tool[]) => {
-        this.tools = data;
+    this.citaservice.getAll().subscribe(
+      (data: Cita[]) => {
+        this.citas = data;
       }
     )
 
-    this.toolservice.tools$.subscribe(
-      (data: Tool[]) => {
-        this.tools = data;
+    this.citaservice.citas$.subscribe(
+      (data: Cita[]) => {
+        this.citas = data;
       }
     );
   }
 }
-export {Tool}
+export {Cita}

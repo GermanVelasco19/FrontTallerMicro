@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToolService } from "../tool.service";
+import { CitaService } from "../cita.service";
 import { Router, NavigationEnd } from '@angular/router';
 import { CookieService } from "ngx-cookie-service";
 
@@ -11,7 +11,7 @@ import { CookieService } from "ngx-cookie-service";
 
 export class NavmenuComponent {
 
-  constructor(private toolservice: ToolService, private cookies: CookieService, private router: Router) {}
+  constructor(private citaservice: CitaService, private cookies: CookieService, private router: Router) {}
 
   word = "";
   searchType = "marca";
@@ -24,29 +24,17 @@ export class NavmenuComponent {
 
   search() {
 
-    if (this.searchType === "brand") {
-      this.SearchBrand();
-
-    }
-    if (this.searchType === "name") {
-      this.SearchName();
-    }
+    this.SearchCedula();
   }
 
-  SearchBrand() {
-    this.toolservice.searchBrand(this.word).subscribe(
-      (data) => {
-        this.toolservice.updateTools(data);
-      }
-    );
-  }
-
-  SearchName() {
-    this.toolservice.searchName(this.word).subscribe(
-      (data) => {
-        this.toolservice.updateTools(data);
-      }
-    );
+  SearchCedula() {
+    if (this.word!=null) {
+      this.citaservice.searchCedula(parseInt(this.word)).subscribe(
+        (data) => {
+          this.citaservice.updateTools(data);
+        }
+      );
+    }
   }
 
   logOut() {

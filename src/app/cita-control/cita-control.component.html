@@ -1,0 +1,16 @@
+<navmenu></navmenu>
+<div class="container my-5">
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let cita of citas">
+                <h5>{{cita.id_cita}} {{cita.nombre}} {{cita.last_name}}</h5>
+                <p>Proposito de la cita: {{cita.proposito}}</p>
+                <p>Cedula: {{ cita.cedula }}</p>
+                <button (click)="editar(cita.nombre)" class="btn btn-primary">Editar <img src="./assets/Lapiz.png" style="width: 20px; height: 20px;"></button>
+                <button (click)="borrar(cita.id_cita)" class="btn btn-primary">Eliminar <img src="./assets/cross.png" style="width: 20px; height: 20px;"></button>
+            </li>
+        </ul>
+      <button (click)="nuevo()" class="btn btn-primary">Nueva cita <img src="./assets/suma.png" style="width: 20px; height: 20px;"></button>
+    </div>
+</div>
+<pagination-buttons></pagination-buttons>

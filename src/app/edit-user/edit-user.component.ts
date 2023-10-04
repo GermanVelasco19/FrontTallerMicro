@@ -20,7 +20,8 @@ export class EditUserComponent {
     password: '',
     name: '',
     lastname: '',
-    birthdate: ''
+    date: '',
+    cedula:0
   });
 
   authenticated = 0;
@@ -33,7 +34,6 @@ export class EditUserComponent {
     name_user: '',
     last_name_user: '',
     birthdate_user: '',
-    city_id: 0,
     token: ''
   };
 
@@ -44,7 +44,6 @@ export class EditUserComponent {
     name_user: '',
     last_name_user: '',
     birthdate_user: '',
-    city_id: 0,
     token: ''
   };
 
@@ -71,7 +70,8 @@ export class EditUserComponent {
     let passParam = this.EditForm.value.password;
     let nameParam = this.EditForm.value.name;
     let lastnameParam = this.EditForm.value.lastname;
-    let birthdateParam = this.EditForm.value.birthdate;
+    let birthdateParam = this.EditForm.value.date;
+    let cedulaParam = this.EditForm.value.cedula;
 
     this.userN.user_id = Number(userParam);
     if (nameParam != null) {

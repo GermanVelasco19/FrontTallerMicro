@@ -3,8 +3,7 @@
     <div class="row">
         <ul class="list-group">
             <li class="list-group-item" *ngFor="let us of user">
-                <h5>{{us.user_id}}.{{us.name_user}}</h5>
-                <p>Nombre: {{us.username}} {{us.last_name_user}}</p>
+                <h5>{{us.user_id}}.{{us.name_user}} {{us.last_name_user}}</h5>
                 <p>Fecha de nacimiento: {{us.birthdate_user}}</p>
                 <button (click)="editU(us.user_id)" class="btn btn-primary">Editar <img src="./assets/Lapiz.png" style="width: 20px; height: 20px;"></button>
                 <button (click)="borrar(us.user_id)" class="btn btn-primary">Eliminar <img src="./assets/cross.png" style="width: 20px; height: 20px;"></button>

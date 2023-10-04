@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Herramientas Web</title>
+  <title>Citas Peluquería</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light custom-bg">
-    <a class="navbar-brand" href="/">Herramientas Web</a>
+    <a class="navbar-brand" href="/">Citas peluquería</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,22 +19,12 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-auto">
-        <div class="span2">
-          <div class="col-md-2 pt-3">
-            <div class="form-group ">
-              <select class="form-control" id="brand_selec" [(ngModel)]="searchType" name="searchType">
-                <option value="name">Nombre</option>
-                <option value="brand">Marca</option>
-              </select>
-            </div>
-         </div>
-        </div>
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar herramienta" aria-label="Search" [(ngModel)]="word" name="word">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar cita por cedula" aria-label="Search" [(ngModel)]="word" name="word">
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="search_button_main" (click)="search()" >Buscar</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="logout_button_main" (click)="logOut()" routerLink="/login" *ngIf="Authenticated==1" >Log-out</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="login_button_main" routerLink="/login" *ngIf="Authenticated==0" >Log-in</button>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_users_main" routerLink="/users-control" *ngIf="Authenticated==1">Usuarios</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_tool_control" routerLink="/tool-control" *ngIf="Authenticated==1">Herramientas</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="log_tool_control" routerLink="/tool-control" *ngIf="Authenticated==1">citas</button>
       </form>
     </div>
   </nav>
