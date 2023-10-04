@@ -1,0 +1,38 @@
+<navmenu></navmenu>
+<div class="title">
+    <h4>Log-in</h4>
+</div>
+<div *ngIf="authenticated==0" id="form_log">
+    <form id="formulario" [formGroup]="checkOutForm" (ngSubmit)="onsubmit()">
+        <label for="inputText" >Usuario</label>
+        <input
+            type="text"
+            class="form-control"
+            id="inputText"
+            placeholder="Enter UserName"
+            required="required"
+            formControlName="login"
+        />
+        <label for="inputPassword" >Contraseña</label>
+        <input
+            type="password"
+            class="form-control"
+            id="inputPassword"
+            placeholder="Password"
+            required="required"
+            formControlName="password"
+        />
+        <div *ngIf="failed">
+            <p> Usuario y/o contraseña incorrectos</p>
+        </div>
+        <div>
+            <button type="submit" >Log in</button>
+        </div>
+    </form>
+</div>
+<div *ngIf="authenticated==1">
+    <p class="mb-0">Hola {{userName}}!</p>
+</div>
+<div>
+    <p class="mb-0">¿no tienes una cuenta? <a href="reg" id="register">¡Registrate ya!</a></p>
+</div>

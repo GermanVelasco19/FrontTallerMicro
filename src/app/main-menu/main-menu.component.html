@@ -1,0 +1,23 @@
+<navmenu></navmenu>
+<div class="container my-5">
+    <div class="row">
+      <div class="card-deck">
+        <div class="card-item" *ngFor="let tool of tools">
+          <div class="card-header">
+            <h5 class="card-title">{{tool.name}}</h5>
+          </div>
+          <div class="card-body">
+            <div class="image_container" >
+                <img id="tool-image" [src]=tool.img alt={{tool.name}}>
+            </div>
+            <div id="texto">
+              <p class="card-text description" id="tool-description">{{tool.description}}</p>
+              <p class="card-text price" id="tool-price">{{tool.price|currency}}</p>
+            </div>
+            <a href="#" class="btn btn-primary">Ampliar información</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<pagination-buttons></pagination-buttons>
